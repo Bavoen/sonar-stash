@@ -1,8 +1,5 @@
 package org.sonar.plugins.stash;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.apache.commons.collections.ListUtils;
 import org.sonar.api.Properties;
 import org.sonar.api.Property;
@@ -11,6 +8,9 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 import org.sonar.api.rule.Severity;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Properties({
     @Property(key = StashPlugin.STASH_NOTIFICATION, name = "Stash Notification", defaultValue = "false", description = "Analysis result will be issued in Stash pull request", global = false),
@@ -47,7 +47,10 @@ public class StashPlugin extends SonarPlugin {
   public static final String STASH_TIMEOUT = "sonar.stash.timeout";
   public static final String SONARQUBE_URL = "sonar.host.url";
   public static final String STASH_TASK_SEVERITY_THRESHOLD = "sonar.stash.task.issue.severity.threshold";
+<<<<<<< HEAD
   public static final String STASH_PROJECT_BASE_DIR = "sonar.stash.project.base.dir";
+=======
+>>>>>>> AmadeusITGroup/master
   
   @Override
   public List getExtensions() {

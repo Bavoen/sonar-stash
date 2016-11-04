@@ -1,20 +1,5 @@
 package org.sonar.plugins.stash;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.mockito.Matchers.anyLong;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -36,7 +21,22 @@ import org.sonar.plugins.stash.issue.StashPullRequest;
 import org.sonar.plugins.stash.issue.StashTask;
 import org.sonar.plugins.stash.issue.StashUser;
 
-public class StashRequestFacadeTest {
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+public class StashRequestFacadeTest extends StashTest {
   
   StashRequestFacade myFacade;
   
@@ -215,6 +215,9 @@ public class StashRequestFacadeTest {
   @Test
   public void testGetStashURL() throws StashConfigurationException {
     when(config.getStashURL()).thenReturn("http://url");
+    assertEquals(myFacade.getStashURL(), "http://url");
+
+    when(config.getStashURL()).thenReturn("http://url/");
     assertEquals(myFacade.getStashURL(), "http://url");
   }
   
